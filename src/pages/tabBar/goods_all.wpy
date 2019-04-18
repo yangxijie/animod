@@ -65,7 +65,7 @@ export default class GoodsAll extends wepy.page {
     bottomLoadMore: BottomLoadMore,
     placeholder: Placeholder
   }
-
+  //获取所有商品信息
   async getGoodList(currentPage, size) {
     let that = this;
     //const json = await api.getGoodsList({
@@ -77,6 +77,7 @@ export default class GoodsAll extends wepy.page {
         skuval: this.skuval
       }
     });
+    console.log(json.data);
     if (json.data.code == 0) {
       that.list = [...that.list, ...json.data.list];
       that.page_total = json.data.page_total;

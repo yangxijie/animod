@@ -5,7 +5,7 @@ import {
 let env = "-test" //-dev 或者 -test
 const apiMall = 'https://sujiefs.com/'
 // const apiMall = 'http://localhost:8080/'
-
+const apiM='http://localhost:8080'
 /**
  * 获取发现好商品接口
  * @param  {[type]} params [description]
@@ -19,13 +19,13 @@ const user2session = (params) => wxRequest(params, apiMall + "/api/wechat/user2s
 
 //商品接口---begin
 //首页发现商品接口
-const hostGoodsList = (params) => wxRequest(params, apiMall + '/api/home/hostGoodsList');
+const hostGoodsList = (params) => wxRequest(params, apiM + '/product/getAll');
 const getHomeDisvocerList = (params) => wxRequest(params, apiMall + '/api/mall/discoverList');
 //查询商品列表
 const getGoodsList = (params) => wxRequest(params, apiMall + '/api/mall/searchGoodsList');
 
 //查询商品详情信息
-const goodsDetail = (params) => wxRequest(params, apiMall + '/api/mall/goods');
+const goodsDetail = (params) => wxRequest(params, apiM + '/product/getbyid');
 //商品加入购物车
 const addCart = (params) => wxRequest(params, apiMall + '/api/mall/goodsCart/add');
 //用户的购物车商品列表

@@ -12,7 +12,7 @@
     <view class="details-msg">
       <view class="details-title">{{detail.name}}</view>
       <view class="details_pinfo">
-        <text class="price">￥{{detail.price}}</text>
+        <text class="price">￥{{detail.promote_price}}</text>
         <view class="order_time {{purchasetype==2||special==1?'hidden':''}}">
           <!--<timer :startTime.sync="startTime" :endTime.sync="endTime"></timer>-->
         </view>
@@ -21,11 +21,11 @@
           <text>分享</text>
         </view>-->
       </view>
-      <view class="baoyou">销量：{{detail.saleCount}}</view>
+      <view class="baoyou">销量：{{detail.stock}}</view>
     </view>
     <view class="order_num">
       <view class="doc">市场价:
-        <text class="num">{{detail.saleCount}}元</text>
+        <text class="num">{{detail.original_price}}元</text>
       </view>
       <!--<view class="doc" wx:if="{{special == 1}}">库存:
         <text class="num">{{detail.stockNum}}件</text>
@@ -285,6 +285,7 @@ export default class goodsDetail extends wepy.page {
         id: that.goodsId
       }
     });
+    console.log(json);
     let time = {};
     if (json.data.code == 0) {
       let data = json.data.data;
